@@ -32,3 +32,37 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+
+Composite USDT Bot
+Simple TRX/USDT Bot
+Simple BTC/USDT Bot
+Simple ETH/USDT Bot
+Simple DOGE/USDT Bot
+Simple BHC/USDT Bot
+Simple 1INCH/USDT Bot
+Simple OMG/USDT Bot
+Simple GRT/USDT Bot
+Simple LINK/USDT Bot
+Simple THETA/USDT Bot
+Simple ZEC/USDT Bot
+Simple VET/USDT Bot
+Simple ADA/USDT Bot
+Simple XLM/USDT Bot
+Simple DOT/USDT Bot
+Simple LTC/USDT Bot
+Simple DASH/USDT Bot
+Simple EOS/USDT Bot
+Simple ATOM/USDT Bot
+Simple XTZ/USDT Bot
+Simple HBAR/USDT Bot
+Simple COMP/USDT Bot
+Simple IOTA/USDT Bot
+Simple SUSHI/USDT Bot
+Simple UNI/USDT Bot
+Simple MKR/USDT Bot
+Simple AAVE/USDT Bot
+Simple BAND/USDT Bot
+Simple SNX/USDT Bot
+Simple SC/USDT Bot
