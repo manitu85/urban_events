@@ -1,5 +1,7 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
+yarn pre-commit
+
 # yarn lint:fix && yarn format
-yarn pre-commit # Replace the last line with "yarn lint-staged"
+# Replace the last line with "yarn lint-staged"
