@@ -2,7 +2,7 @@
 module.exports = {
 	// JavaScript files
 	'**/*.(jsx|js)': filenames => [
-		`yarn lint:fix ${filenames.join(' ')}`,
+		`yarn eslint:fix ${filenames.join(' ')}`,
 		`yarn format ${filenames.join(' ')}`,
 	],
 
