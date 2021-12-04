@@ -1,10 +1,11 @@
-import Link from 'next/link';
+import Layout from '@/components/Layout';
+
+const test = true;
 
 export default function HomePage() {
 	return (
-		<div>
-			<h1>Home Page</h1>
-			<Link href="/about">About</Link>
-		</div>
+		<Layout>
+			<h1 name='check'>Home Page</h1>
+		</Layout>
 	);
 }

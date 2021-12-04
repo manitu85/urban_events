@@ -1,20 +1,44 @@
 {
-  "name": "nextjs",
-  "version": "1.0.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "next": "11.1.2",
-    "react": "17.0.2",
-    "react-dom": "17.0.2"
-  },
-  "devDependencies": {
-    "eslint": "7.32.0",
-    "eslint-config-next": "11.1.0"
-  }
+	"name": "nextjs",
+	"version": "1.0.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "eslint \"{,!(.next)/**/}*.{js, jsx}\"",
+		"lint:fix": "yarn lint -- --fix",
+		"prettier": "prettier \"{,!(.next)/**/}*.{js, jsx}\" --check",
+		"format": "yarn prettier -- --write",
+		"prepare": "husky install",
+		"pre-commit": "lint-staged"
+	},
+	"lint-staged": {
+		"**/*.(jsx|js)": [
+			"yarn lint:fix"
+		],
+		"**/*.(jsx|js)}": [
+			"yarn format"
+		]
+	},
+	"dependencies": {
+		"next": "11.1.2",
+		"react": "17.0.2",
+		"react-dom": "17.0.2"
+	},
+	"devDependencies": {
+		"@next/eslint-plugin-next": "^12.0.5",
+		"babel-eslint": "^10.1.0",
+		"eslint": "7.32.0",
+		"eslint-config-prettier": "^8.3.0",
+		"eslint-plugin-import": "^2.25.3",
+		"eslint-plugin-jsx-a11y": "^6.5.1",
+		"eslint-plugin-prettier": "^4.0.0",
+		"eslint-plugin-react": "^7.27.1",
+		"eslint-plugin-react-hooks": "^4.3.0",
+		"eslint-plugin-simple-import-sort": "^7.0.0",
+		"husky": "^7.0.4",
+		"lint-staged": "^12.1.2",
+		"prettier": "^2.5.0"
+	}
 }

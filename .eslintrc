@@ -6,7 +6,7 @@
 		"plugin:import/recommended",
 		"plugin:react-hooks/recommended",
 		"plugin:jsx-a11y/recommended",
-		"plugin:prettier/recommended" // "eslint-config-prettier" + eslint-plugin-prettier
+		"plugin:prettier/recommended" // "eslint-config-prettier" + eslint-plugin-prettier together
 	],
 	"plugins": ["simple-import-sort"],
 	"env": {
