@@ -1,7 +1,5 @@
 import Layout from '@/components/Layout';
 
-const test = true;
-
 export default function HomePage() {
 	return (
 		<Layout>
