@@ -13,6 +13,14 @@
 		"prepare": "husky install",
 		"pre-commit": "lint-staged"
 	},
+	"lint-staged": {
+		"**/*.(jsx|js)": [
+			"yarn lint:fix"
+		],
+		"**/*.(jsx|js)}": [
+			"yarn format"
+		]
+	},
 	"dependencies": {
 		"next": "11.1.2",
 		"react": "17.0.2",
@@ -22,7 +30,6 @@
 		"@next/eslint-plugin-next": "^12.0.5",
 		"babel-eslint": "^10.1.0",
 		"eslint": "7.32.0",
-		"eslint-config-airbnb": "^19.0.2",
 		"eslint-config-prettier": "^8.3.0",
 		"eslint-plugin-import": "^2.25.3",
 		"eslint-plugin-jsx-a11y": "^6.5.1",
