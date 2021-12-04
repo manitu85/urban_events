@@ -87,5 +87,5 @@
 			}
 		]
 	},
-	"ignorePatterns": [".next/*", "build/*"]
+	"ignorePatterns": ["node_modules/*", ".next/*", "build/*", "!.prettierrc"]
 }
