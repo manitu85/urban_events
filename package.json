@@ -13,14 +13,6 @@
 		"prepare": "husky install",
 		"pre-commit": "lint-staged"
 	},
-	"lint-staged": {
-		"**/*.(jsx|js)": [
-			"yarn lint:fix"
-		],
-		"**/*.(jsx|js)}": [
-			"yarn format"
-		]
-	},
 	"dependencies": {
 		"next": "11.1.2",
 		"react": "17.0.2",
