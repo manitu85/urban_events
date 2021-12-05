@@ -1,6 +1,6 @@
 import Layout from '@/components/Layout';
 
-const About = function () {
+export default function About() {
 	return (
 		<Layout>
 			<h3>About</h3>
@@ -8,4 +8,4 @@ const About = function () {
 			<p>Version: 1.0.0.</p>
 		</Layout>
 	);
-};
+}
