@@ -5,7 +5,7 @@ const EventPage = function () {
 	console.log(router);
 	return (
 		<div>
-			<h1 name='EventPage'>{router.query.slug}</h1>
+			<h4 name='EventPage'>{router.query.slug}</h4>
 		</div>
 	);
 };
