@@ -10,6 +10,7 @@ module.exports = {
 	'**/*.(md|json)': filenames => `yarn format ${filenames.join(' ')}`,
 };
 
+// #
 // Next js lint-staged config if you use eslint-plugin-next
 // module.exports = {
 // 	'**/*.js?(x)': filenames =>
