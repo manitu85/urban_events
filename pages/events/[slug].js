@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 
-export default function EventPage() {
+const EventPage = function () {
 	const router = useRouter();
 	console.log(router);
 	return (
@@ -8,4 +8,4 @@ export default function EventPage() {
 			<h1 name='EventPage'>{router.query.slug}</h1>
 		</div>
 	);
-}
+};
