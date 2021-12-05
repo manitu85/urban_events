@@ -1,9 +1,9 @@
 import Layout from '@/components/Layout';
 
-export default function HomePage() {
+const HomePage = function () {
 	return (
 		<Layout>
 			<h1 name='check'>Home Page</h1>
 		</Layout>
 	);
-}
+};
