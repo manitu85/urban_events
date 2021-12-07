@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 import EventItem from '@/components/EventItem';
 import Layout from '@/components/Layout';
-import API_URL from '@/config/index';
+import { getStrapiURL } from '@/config/index';
 
 export default function HomePage({ events }) {
 	return (
@@ -21,12 +21,12 @@ export default function HomePage({ events }) {
 	);
 }
 
-// export async function getStaticProps() {
-// 	const res = await fetch(`${API_URL}/api/events`);
-// 	const events = res.json();
+export async function getStaticProps() {
+	const res = await fetch(getStrapiURL(`/events?_sort=date:ASC&_limit=3`));
+	const events = await res.json();
 
-// 	return {
-// 		props: { events },
-// 		revalidate: 1,
-// 	};
-// }
+	return {
+		props: { events },
+		revalidate: 1,
+	};
+}

@@ -2,6 +2,8 @@ import Link from 'next/link';
 
 import styles from '@/styles/Header.module.scss';
 
+import Search from './Search';
+
 export default function Header() {
 	return (
 		<header className={styles.header}>
@@ -10,6 +12,7 @@ export default function Header() {
 					<a>Urbanbug | DJ Events</a>
 				</Link>
 			</div>
+			<Search />
 			<nav>
 				<ul>
 					<li>

@@ -4,17 +4,17 @@ import { useRouter } from 'next/router';
 import { FaPencilAlt, FaTimes } from 'react-icons/fa';
 
 import Layout from '@/components/Layout';
-import API_URL from '@/config/index';
+import { getStrapiURL } from '@/config/index';
 import styles from '@/styles/Event.module.scss';
 
-// TODO:  Continue from here
 export default function EventPage({ evt }) {
 	const router = useRouter();
-	console.log(router);
 
 	const deleteEvent = e => {
 		console.log(e);
 	};
+
+	// console.log(`slug`, evt);
 
 	return (
 		<Layout>
@@ -22,13 +22,11 @@ export default function EventPage({ evt }) {
 				<div className={styles.controls}>
 					<Link href={`/events/edit/${evt.id}`}>
 						<a>
-							<FaPencilAlt />
-							Edit Event
+							<FaPencilAlt /> Edit Event
 						</a>
 					</Link>
 					<a href='"' onClick={deleteEvent} className={styles.delete}>
-						<FaTimes />
-						Delete
+						<FaTimes /> Delete
 					</a>
 				</div>
 				<span>
@@ -37,7 +35,7 @@ export default function EventPage({ evt }) {
 				<h3>{evt.name}</h3>
 				{evt.image && (
 					<div className={styles.image}>
-						<Image src={evt.image} width={960} height={600} />
+						<Image src={evt.image.formats.large.url} width={960} height={600} />
 					</div>
 				)}
 				<h3>Performers:</h3>
@@ -59,7 +57,7 @@ export default function EventPage({ evt }) {
 
 // * REVIEW: SCG
 export async function getStaticPaths() {
-	const res = await fetch(`${API_URL}/api/events`);
+	const res = await fetch(getStrapiURL(`/events`));
 	const events = await res.json();
 
 	const paths = events.map(evt => ({ params: { slug: evt.slug } }));
@@ -71,18 +69,18 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug } }) {
-	const res = await fetch(`${API_URL}/api/events/${slug}`);
+	const res = await fetch(getStrapiURL(`/events?slug=${slug}`)); // slug strapi way
 	const events = await res.json();
 
 	return {
-		props: { evt: events[0] },
+		props: { evt: events[0] }, // [0] strapi way
 		revalidate: 1,
 	};
 }
 
 // * REVIEW: SSR
 // export async function getServerSideProps({ query: { slug } }) {
-// 	const res = await fetch(`${API_URL}/api/events/${slug}`);
+// 	const res = const res = await fetch(getStrapiURL(`/events?slug=${slug}`));
 // 	const events = await res.json();
 
 // 	return {

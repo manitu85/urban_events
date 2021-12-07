@@ -1,6 +1,6 @@
 import EventItem from '@/components/EventItem';
 import Layout from '@/components/Layout';
-import API_URL from '@/config/index';
+import { getStrapiURL } from '@/config/index';
 
 export default function EventsPage({ events }) {
 	return (
@@ -15,11 +15,11 @@ export default function EventsPage({ events }) {
 }
 
 export async function getStaticProps() {
-	const res = await fetch(`${API_URL}/api/events`);
-	const events = res.json();
+	const res = await fetch(getStrapiURL(`/events?_sort=date:ASC&_limit=3`));
+	const events = await res.json();
 
 	return {
-		props: { events: events.slice(0, 3) },
+		props: { events },
 		revalidate: 1,
 	};
 }
