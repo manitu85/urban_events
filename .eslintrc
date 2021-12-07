@@ -31,6 +31,7 @@
 	},
 	"rules": {
 		"prettier/prettier": ["error", {}, { "usePrettierrc": true }],
+		"semi": ["error", "always"],
 		"react/react-in-jsx-scope": "off",
 		"react/prop-types": "off",
 		"react/function-component-definition": 0,
