@@ -14,12 +14,11 @@ export default function EventsPage({ events }) {
 	);
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps({ query: { page = 1 } }) {
 	const res = await fetch(getStrapiURL(`/events?_sort=date:ASC&_limit=3`));
 	const events = await res.json();
-
+	console.log(`page`, page);
 	return {
 		props: { events },
-		revalidate: 1,
 	};
 }

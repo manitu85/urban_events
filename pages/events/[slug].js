@@ -50,7 +50,11 @@ export default function EventPage({ evt }) {
 
 				{evt.image && (
 					<div className={styles.image}>
-						<Image src={evt.image.formats.large.url} width={960} height={600} />
+						<Image
+							src={evt.image.formats.medium.url}
+							width={960}
+							height={600}
+						/>
 					</div>
 				)}
 				<h3>Performers:</h3>
