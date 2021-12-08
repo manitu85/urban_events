@@ -22,7 +22,7 @@ export default function HomePage({ events }) {
 }
 
 export async function getStaticProps() {
-	const res = await fetch(getStrapiURL(`/events?_sort=date:ASC&_limit=3`));
+	const res = await fetch(getStrapiURL(`/events?_sort=date:ASC&_limit=5`));
 	const events = await res.json();
 
 	return {

@@ -1,8 +1,9 @@
 import EventItem from '@/components/EventItem';
 import Layout from '@/components/Layout';
-import { getStrapiURL } from '@/config/index';
+import Pagination from '@/components/Pagination';
+import { getStrapiURL, PER_PAGE } from '@/config/index';
 
-export default function EventsPage({ events }) {
+export default function EventsPage({ events, page, total }) {
 	return (
 		<Layout>
 			<h1>Events</h1>
@@ -10,15 +11,26 @@ export default function EventsPage({ events }) {
 			{events.map(evt => (
 				<EventItem key={evt.id} evt={evt} />
 			))}
+			<Pagination page={page} total={total} />
 		</Layout>
 	);
 }
 
 export async function getServerSideProps({ query: { page = 1 } }) {
-	const res = await fetch(getStrapiURL(`/events?_sort=date:ASC&_limit=3`));
-	const events = await res.json();
-	console.log(`page`, page);
+	// Calculate pages
+	const start = +page === 1 ? 0 : (+page - 1) * PER_PAGE;
+
+	// Fetch total/count
+	const totalRes = await fetch(getStrapiURL(`/events/count`));
+	const total = await totalRes.json();
+
+	// Fetch events
+	const evtRes = await fetch(
+		getStrapiURL(`/events?_sort=date:ASC&_limit=${PER_PAGE}&_start=${start}`)
+	);
+	const events = await evtRes.json();
+
 	return {
-		props: { events },
+		props: { events, page: +page, total },
 	};
 }

@@ -14,7 +14,6 @@ export default function EventPage({ evt }) {
 	const router = useRouter();
 
 	const deleteEvent = async e => {
-		// eslint-disable-next-line no-restricted-globals
 		const res = await fetch(getStrapiURL(`/events/${evt.id}`), {
 			method: 'DELETE',
 		});
@@ -24,7 +23,7 @@ export default function EventPage({ evt }) {
 		if (!res.ok) {
 			toast.error(data.message);
 		} else {
-			router.push('/');
+			router.push('/events');
 		}
 	};
 
