@@ -1,7 +1,10 @@
+import 'react-toastify/dist/ReactToastify.css';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { FaPencilAlt, FaTimes } from 'react-icons/fa';
+import { toast, ToastContainer } from 'react-toastify';
 
 import Layout from '@/components/Layout';
 import { getStrapiURL } from '@/config/index';
@@ -10,11 +13,20 @@ import styles from '@/styles/Event.module.scss';
 export default function EventPage({ evt }) {
 	const router = useRouter();
 
-	const deleteEvent = e => {
-		console.log(e);
-	};
+	const deleteEvent = async e => {
+		// eslint-disable-next-line no-restricted-globals
+		const res = await fetch(getStrapiURL(`/events/${evt.id}`), {
+			method: 'DELETE',
+		});
 
-	// console.log(`slug`, evt);
+		const data = await res.json();
+
+		if (!res.ok) {
+			toast.error(data.message);
+		} else {
+			router.push('/');
+		}
+	};
 
 	return (
 		<Layout>
@@ -25,14 +37,17 @@ export default function EventPage({ evt }) {
 							<FaPencilAlt /> Edit Event
 						</a>
 					</Link>
-					<a href='"' onClick={deleteEvent} className={styles.delete}>
+					{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+					<a href='#' onClick={deleteEvent} className={styles.delete}>
 						<FaTimes /> Delete
 					</a>
 				</div>
 				<span>
-					{evt.date} at {evt.time}
+					{new Date(evt.date).toLocaleDateString('en-US')} at {evt.time}
 				</span>
-				<h3>{evt.name}</h3>
+				<h1>{evt.name}</h1>
+				<ToastContainer />
+
 				{evt.image && (
 					<div className={styles.image}>
 						<Image src={evt.image.formats.large.url} width={960} height={600} />

@@ -4,7 +4,6 @@ import Link from 'next/link';
 import styles from '@/styles/EventItem.module.scss';
 
 export default function EventItem({ evt }) {
-	console.log(`evt`, evt);
 	return (
 		<div className={styles.event}>
 			<div className={styles.img}>
