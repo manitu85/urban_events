@@ -46,6 +46,9 @@ export default async (req, res) => {
 	}
 };
 
-// ? NOTE: Cookie github
+// ? NOTE: SSR Cookie
+// Http-only-cookie is safer method, because prevent cross site-scripting attacks on frontend.
+// All action is happening on server-side where JWT token is securer
 // cookie.serialize(name, value, options);
+// cookie.parse(str, options);
 // https://github.com/jshttp/cookie

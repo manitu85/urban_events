@@ -13,6 +13,7 @@ import styles from '@/styles/Event.module.scss';
 export default function EventPage({ evt }) {
 	const router = useRouter();
 
+	// eslint-disable-next-line no-unused-vars
 	const deleteEvent = async e => {
 		const res = await fetch(getStrapiURL(`/events/${evt.id}`), {
 			method: 'DELETE',

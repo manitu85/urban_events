@@ -11,16 +11,18 @@ import Layout from '@/components/Layout';
 import { getStrapiURL } from '@/config/index';
 import styles from '@/styles/Form.module.scss';
 
+const initialValues = {
+	name: '',
+	performers: '',
+	venue: '',
+	address: '',
+	date: '',
+	time: '',
+	description: '',
+};
+
 export default function AddEventPage() {
-	const [values, setValues] = useState({
-		name: '',
-		performers: '',
-		venue: '',
-		address: '',
-		date: '',
-		time: '',
-		description: '',
-	});
+	const [values, setValues] = useState(initialValues);
 
 	const router = useRouter();
 

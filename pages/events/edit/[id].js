@@ -71,6 +71,7 @@ export default function EditEventPage({ evt }) {
 		setValues({ ...values, [name]: value });
 	};
 
+	// eslint-disable-next-line no-unused-vars
 	const imageUploaded = async e => {
 		const res = await fetch(getStrapiURL(`/events/${evt.id}`));
 		const data = await res.json();
@@ -187,11 +188,11 @@ export default function EditEventPage({ evt }) {
 	);
 }
 
-export async function getServerSideProps({ params: { id }, req }) {
+export async function getServerSideProps({ params: { id } }) {
 	const res = await fetch(getStrapiURL(`/events/${id}`));
 	const evt = await res.json();
 
-	console.log(`JWT`, req.headers.cookie);
+	// console.log(`JWT`, req.headers.cookie);
 
 	return {
 		props: { evt },
