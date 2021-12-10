@@ -1,5 +1,5 @@
 /* eslint-disable no-shadow */
-import { useMemo, useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 import { createContext, useEffect, useState } from 'react';
 
 import { NEXT_URL } from '@/config/index';
@@ -85,8 +85,13 @@ export const AuthProvider = ({ children }) => {
 		}
 	};
 
-	// Should use the useMemo because multiply renders, doesn't work properly
-	// const values = useMemo(() => ({ user, error, register, login, logout }), []);
+	/**
+	* FIXME: Because multiply renders, should memoize the full context value, but doesn't work properly.
+	 const contextValue = useMemo(
+	 	() => ({ user, error, register, login, logout }),
+	 	[user, error, register, login, logout]
+	 );
+	*/
 
 	return (
 		// eslint-disable-next-line react/jsx-no-constructed-context-values

@@ -3,11 +3,10 @@
 		"baseUrl": ".",
 		"paths": {
 			"@/components/*": ["components/*"],
-			"@/hooks/*": ["hooks/*"],
-			"@/context/*": ["context/*"],
 			"@/config/*": ["config/*"],
-			"@/hoc/*": ["hoc/*"],
-			"@/lib/*": ["lib/*"],
+			"@/context/*": ["context/*"],
+			"@/hooks/*": ["hooks/*"],
+			"@/helpers/*": ["helpers/*"],
 			"@/styles/*": ["styles/*"],
 			"@/theme/*": ["theme/*"]
 		}
