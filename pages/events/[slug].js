@@ -74,35 +74,35 @@ export default function EventPage({ evt }) {
 	);
 }
 
-// * REVIEW: SCG
-export async function getStaticPaths() {
-	const res = await fetch(getStrapiURL(`/events`));
-	const events = await res.json();
-
-	const paths = events.map(evt => ({ params: { slug: evt.slug } }));
-
-	return {
-		paths,
-		fallback: true,
-	};
-}
-
-export async function getStaticProps({ params: { slug } }) {
-	const res = await fetch(getStrapiURL(`/events?slug=${slug}`)); // slug strapi way
-	const events = await res.json();
-
-	return {
-		props: { evt: events[0] }, // [0] strapi way
-		revalidate: 1,
-	};
-}
-
 // * REVIEW: SSR
-// export async function getServerSideProps({ query: { slug } }) {
-// 	const res = const res = await fetch(getStrapiURL(`/events?slug=${slug}`));
+export async function getServerSideProps({ query: { slug } }) {
+	const res = await fetch(getStrapiURL(`/events?slug=${slug}`));
+	const events = await res.json();
+
+	return {
+		props: { evt: events[0] },
+	};
+}
+
+// * REVIEW: SCG
+// export async function getStaticPaths() {
+// 	const res = await fetch(getStrapiURL(`/events`));
+// 	const events = await res.json();
+
+// 	const paths = events.map(evt => ({ params: { slug: evt.slug } }));
+
+// 	return {
+// 		paths,
+// 		fallback: true,
+// 	};
+// }
+
+// export async function getStaticProps({ params: { slug } }) {
+// 	const res = await fetch(getStrapiURL(`/events?slug=${slug}`)); // slug strapi way
 // 	const events = await res.json();
 
 // 	return {
-// 		props: { evt: events[0] },
+// 		props: { evt: events[0] }, // [0] strapi way
+// 		revalidate: 1,
 // 	};
 // }

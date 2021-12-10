@@ -1,4 +1,4 @@
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 
 import DashboardEvent from '@/components/DashboardEvent';
 import Layout from '@/components/Layout';
