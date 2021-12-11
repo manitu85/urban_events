@@ -11,37 +11,9 @@ import { getStrapiURL } from '@/config/index';
 import styles from '@/styles/Event.module.scss';
 
 export default function EventPage({ evt }) {
-	const router = useRouter();
-
-	// eslint-disable-next-line no-unused-vars
-	const deleteEvent = async e => {
-		const res = await fetch(getStrapiURL(`/events/${evt.id}`), {
-			method: 'DELETE',
-		});
-
-		const data = await res.json();
-
-		if (!res.ok) {
-			toast.error(data.message);
-		} else {
-			router.push('/events');
-		}
-	};
-
 	return (
 		<Layout>
 			<div className={styles.event}>
-				<div className={styles.controls}>
-					<Link href={`/events/edit/${evt.id}`}>
-						<a>
-							<FaPencilAlt /> Edit Event
-						</a>
-					</Link>
-					{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-					<a href='#' onClick={deleteEvent} className={styles.delete}>
-						<FaTimes /> Delete
-					</a>
-				</div>
 				<span>
 					{new Date(evt.date).toLocaleDateString('en-US')} at {evt.time}
 				</span>

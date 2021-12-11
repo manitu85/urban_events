@@ -1,4 +1,7 @@
-// import { useRouter } from 'next/router';
+import 'react-toastify/dist/ReactToastify.css';
+
+import { useRouter } from 'next/router';
+import { toast, ToastContainer } from 'react-toastify';
 
 import DashboardEvent from '@/components/DashboardEvent';
 import Layout from '@/components/Layout';
@@ -6,12 +9,27 @@ import { getStrapiURL } from '@/config/index';
 import { parseCookies } from '@/helpers/index';
 import styles from '@/styles/Dashboard.module.scss';
 
-export default function DashboardPage({ events }) {
+export default function DashboardPage({ events, token }) {
 	// console.log(`CURRENT_USER`, events);
-	// const router = useRouter();
+	// console.log(`USER_TOKEN`, token);
+	const router = useRouter();
 
-	const deleteEvent = id => {
-		console.log(id);
+	const deleteEvent = async id => {
+		const res = await fetch(getStrapiURL(`/events/${id}`), {
+			method: 'DELETE',
+			headers: {
+				'Content-Type': 'application/json',
+				Authorization: `Bearer ${token}`,
+			},
+		});
+
+		const data = await res.json();
+
+		if (!res.ok) {
+			toast.error(data.message);
+		} else {
+			router.reload();
+		}
 	};
 
 	return (
@@ -30,7 +48,6 @@ export default function DashboardPage({ events }) {
 
 export async function getServerSideProps({ req }) {
 	const { token } = parseCookies(req);
-	// console.log(`token`, token);
 	const res = await fetch(getStrapiURL(`/events/me`), {
 		method: 'GET',
 		headers: {
@@ -41,6 +58,6 @@ export async function getServerSideProps({ req }) {
 	const events = await res.json();
 
 	return {
-		props: { events },
+		props: { events, token },
 	};
 }

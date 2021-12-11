@@ -3,8 +3,10 @@ import { useState } from 'react';
 import { getStrapiURL } from '@/config/index';
 import styles from '@/styles/Form.module.scss';
 
-export default function ImageUpload({ evtId, imageUploaded }) {
+export default function ImageUpload({ evtId, imageUploaded, token }) {
 	const [image, setImage] = useState(null);
+
+	console.log(`IMAGE_UPLOAD`, token);
 
 	const handleSubmit = async e => {
 		e.preventDefault();
@@ -16,6 +18,9 @@ export default function ImageUpload({ evtId, imageUploaded }) {
 
 		const res = await fetch(getStrapiURL('/upload'), {
 			method: 'POST',
+			headers: {
+				Authorization: `Bearer ${token}`,
+			},
 			body: formData,
 		});
 

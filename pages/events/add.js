@@ -1,5 +1,4 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-
 import 'react-toastify/dist/ReactToastify.css';
 
 import Link from 'next/link';
@@ -9,6 +8,7 @@ import { toast, ToastContainer } from 'react-toastify';
 
 import Layout from '@/components/Layout';
 import { getStrapiURL } from '@/config/index';
+import { parseCookies } from '@/helpers/index';
 import styles from '@/styles/Form.module.scss';
 
 const initialValues = {
@@ -21,7 +21,7 @@ const initialValues = {
 	description: '',
 };
 
-export default function AddEventPage() {
+export default function AddEventPage({ token }) {
 	const [values, setValues] = useState(initialValues);
 
 	const router = useRouter();
@@ -42,16 +42,16 @@ export default function AddEventPage() {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
-				// Authorization: `Bearer ${token}`,
+				Authorization: `Bearer ${token}`,
 			},
 			body: JSON.stringify(values),
 		});
 
 		if (!res.ok) {
-			// if (res.status === 403 || res.status === 401) {
-			// 	toast.error('No token included');
-			// 	return;
-			// }
+			if (res.status === 403 || res.status === 401) {
+				toast.error('No token included');
+				return;
+			}
 			toast.error('Something Went Wrong');
 		} else {
 			const evt = await res.json();
@@ -148,4 +148,12 @@ export default function AddEventPage() {
 			</form>
 		</Layout>
 	);
+}
+
+export async function getServerSideProps({ req }) {
+	const { token } = parseCookies(req);
+
+	return {
+		props: { token },
+	};
 }

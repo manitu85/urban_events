@@ -13,10 +13,11 @@ import ImageUpload from '@/components/ImageUpload';
 import Layout from '@/components/Layout';
 import Modal from '@/components/Modal';
 import { getStrapiURL } from '@/config/index';
+import { parseCookies } from '@/helpers/index';
 import styles from '@/styles/Form.module.scss';
 
-export default function EditEventPage({ evt }) {
-	const [values, setValues] = useState({
+export default function EditEventPage({ evt, token }) {
+	const initialValues = {
 		name: evt.name,
 		performers: evt.performers,
 		venue: evt.venue,
@@ -24,8 +25,9 @@ export default function EditEventPage({ evt }) {
 		date: evt.date,
 		time: evt.time,
 		description: evt.description,
-	});
+	};
 
+	const [values, setValues] = useState(initialValues);
 	const [showModal, setShowModal] = useState(false);
 	const [imagePreview, setImagePreview] = useState(
 		evt.image ? evt.image.formats.thumbnail.url : null
@@ -49,6 +51,7 @@ export default function EditEventPage({ evt }) {
 			method: 'PUT',
 			headers: {
 				'Content-Type': 'application/json',
+				Authorization: `Bearer ${token}`,
 			},
 			body: JSON.stringify(values),
 		});
@@ -182,19 +185,22 @@ export default function EditEventPage({ evt }) {
 			</div>
 
 			<Modal show={showModal} onClose={() => setShowModal(false)}>
-				<ImageUpload evtId={evt.id} imageUploaded={imageUploaded} />
+				<ImageUpload
+					evtId={evt.id}
+					imageUploaded={imageUploaded}
+					token={token}
+				/>
 			</Modal>
 		</Layout>
 	);
 }
 
-export async function getServerSideProps({ params: { id } }) {
+export async function getServerSideProps({ params: { id }, req }) {
+	const { token } = parseCookies(req);
 	const res = await fetch(getStrapiURL(`/events/${id}`));
 	const evt = await res.json();
 
-	// console.log(`JWT`, req.headers.cookie);
-
 	return {
-		props: { evt },
+		props: { evt, token },
 	};
 }

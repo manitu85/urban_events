@@ -9,6 +9,7 @@ import Search from './Search';
 
 export default function Header() {
 	const { user, logout } = useContext(AuthContext);
+
 	return (
 		<header className={styles.header}>
 			<div className={styles.logo}>
@@ -37,6 +38,7 @@ export default function Header() {
 									<a>Dashboard</a>
 								</Link>
 							</li>
+							<li>{user.email}</li>
 							<li>
 								<button
 									type='button'
