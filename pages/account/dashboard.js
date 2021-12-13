@@ -18,7 +18,6 @@ export default function DashboardPage({ events, token }) {
 		const res = await fetch(getStrapiURL(`/events/${id}`), {
 			method: 'DELETE',
 			headers: {
-				'Content-Type': 'application/json',
 				Authorization: `Bearer ${token}`,
 			},
 		});
