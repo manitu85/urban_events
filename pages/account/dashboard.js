@@ -47,6 +47,7 @@ export default function DashboardPage({ events, token }) {
 
 export async function getServerSideProps({ req }) {
 	const { token } = parseCookies(req);
+
 	const res = await fetch(getStrapiURL(`/events/me`), {
 		method: 'GET',
 		headers: {

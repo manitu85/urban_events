@@ -2,10 +2,9 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { FaPencilAlt, FaTimes } from 'react-icons/fa';
-import { toast, ToastContainer } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 
+import EventMap from '@/components/EventMap';
 import Layout from '@/components/Layout';
 import { getStrapiURL } from '@/config/index';
 import styles from '@/styles/Event.module.scss';
@@ -36,7 +35,7 @@ export default function EventPage({ evt }) {
 				<h3>Venue: {evt.venue}</h3>
 				<p>{evt.address}</p>
 
-				{/* <EventMap evt={evt} /> */}
+				<EventMap evt={evt} />
 
 				<Link href='/events'>
 					<a className={styles.back}>{'<'} Go Back</a>
