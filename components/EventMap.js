@@ -7,7 +7,7 @@ import ReactMapGL, { Marker } from 'react-map-gl';
 // import Geocoder from 'react-map-gl-geocoder/dist/index';
 
 export default function EventMap({ evt }) {
-	const [viewport, setViewport] = React.useState({
+	const [viewport, setViewport] = useState({
 		latitude: 44.8125,
 		longitude: 20.4612,
 		width: '600px',
@@ -17,10 +17,10 @@ export default function EventMap({ evt }) {
 
 	return (
 		<ReactMapGL
+			{...viewport}
 			mapboxApiAccessToken={process.env.NEXT_PUBLIC_MAPBOX_API_TOKEN}
 			onViewportChange={vp => setViewport(vp)}
 			mapStyle='mapbox://styles/manitux/ckx862qa39ood14k5gpjp7nf7'
-			{...viewport}
 		>
 			<Marker
 				key={evt.id}
@@ -38,7 +38,7 @@ export default function EventMap({ evt }) {
 
 // ? Example
 // Only rerender markers if props.data has changed
-// const markers = React.useMemo(() => data.map(
+// const markers = useMemo(() => data.map(
 //   city => (
 //     <Marker key={city.name} longitude={city.longitude} latitude={city.latitude} >
 //       <img src="pin.png" />
