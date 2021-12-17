@@ -4,7 +4,7 @@ import 'react-map-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import Image from 'next/image';
 import React, { useCallback, useRef, useState } from 'react';
 import ReactMapGL, { Marker } from 'react-map-gl';
-// import Geocoder from 'react-map-gl-geocoder/dist/index';
+// import Geocoder from 'react-map-gl-geocode/dist/index.js';
 
 export default function EventMap({ evt }) {
 	const [viewport, setViewport] = useState({

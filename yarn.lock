@@ -4708,10 +4708,10 @@ react-is@^16.7.0, react-is@^16.8.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react-map-gl-geocoder@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/react-map-gl-geocoder/-/react-map-gl-geocoder-2.2.0.tgz#621d18cbd1770d8934f895de7a827fedd7bbe333"
-  integrity sha512-OtGaH+Fep/MAEr7Y7Q9N91jca3sskj82o2g/VG00UPtSYapsLRwfhgvD8oTQrw4Mzxmn8TAFfbi5ZbQBpNF6ag==
+react-map-gl-geocoder@^2.1.7:
+  version "2.1.7"
+  resolved "https://registry.yarnpkg.com/react-map-gl-geocoder/-/react-map-gl-geocoder-2.1.7.tgz#781780d5845a82ec18259b7748a19bae4a3de0c4"
+  integrity sha512-hZAIAZPfzVB6qC3KHSqebKgo0VCpp5uBXeNshShQbkRTBt6zPACUKw8I4XMpafEN1/4q8e1tmwkfeSdMGRni5Q==
   dependencies:
     "@mapbox/mapbox-gl-geocoder" "4.7.0"
     prop-types "^15.7.2"
