@@ -2,18 +2,20 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import 'react-map-gl-geocoder/dist/mapbox-gl-geocoder.css';
 
 import Image from 'next/image';
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import ReactMapGL, { Marker } from 'react-map-gl';
 // import Geocoder from 'react-map-gl-geocode/dist/index';
 
 export default function EventMap({ evt }) {
 	const [viewport, setViewport] = useState({
-		latitude: 44.8125,
-		longitude: 20.4612,
+		latitude: evt.lat,
+		longitude: evt.long,
 		width: '600px',
 		height: '350px',
 		zoom: 12,
 	});
+
+	// console.log("location", viewport.latitude, viewport.longitude);
 
 	return (
 		<ReactMapGL
@@ -33,8 +35,7 @@ export default function EventMap({ evt }) {
 	);
 }
 
-// TODO: Forward geocoding: get latitude & longitude from evt.address. (in useEffect)
-// or simply add lang and lat to events because react-map-gl-geocoder package doesn't work for me.
+// TODO: Forward geocoding: get latitude & longitude from evt.address (useEffect)
 
 // ? Example
 // Only rerender markers if props.data has changed
@@ -45,3 +46,7 @@ export default function EventMap({ evt }) {
 //     </Marker>
 //   )
 // ), [props.data])
+
+// Belgrade
+// latitude: 44.8125,
+// longitude: 20.4612,
