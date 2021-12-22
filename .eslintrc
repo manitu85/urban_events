@@ -10,7 +10,7 @@
 		"plugin:react-hooks/recommended",
 		"plugin:jsx-a11y/recommended",
 		"plugin:@next/next/recommended",
-		"plugin:prettier/recommended" // "eslint-config-prettier" + eslint-plugin-prettier
+		"plugin:prettier/recommended"
 	],
 	"plugins": ["simple-import-sort"],
 	"env": {
@@ -35,9 +35,12 @@
 		"semi": ["error", "always"],
 		"react/react-in-jsx-scope": "off",
 		"react/prop-types": "off",
+		"react/jsx-props-no-spreading": "off",
+		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
 		"react/function-component-definition": 0,
 		"simple-import-sort/imports": "error",
 		"simple-import-sort/exports": "error",
+		"@next/next/no-page-custom-font": "off",
 		"jsx-a11y/anchor-is-valid": [
 			"error",
 			{
@@ -46,8 +49,6 @@
 				"aspects": ["invalidHref", "preferButton"]
 			}
 		],
-		"react/jsx-props-no-spreading": "off",
-		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
 		"no-debugger": 0,
 		"no-console": 0,
 		"no-alert": 0,
