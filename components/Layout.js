@@ -1,32 +1,20 @@
-import Head from 'next/head';
+import { Box, Container } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
-
-import styles from '@/styles/Layout.module.scss';
 
 import Footer from './Footer';
 import Header from './Header';
 import Showcase from './Showcase';
 
-export default function Layout({ title, keywords, description, children }) {
+export default function Layout({ children }) {
 	const router = useRouter();
 	return (
-		<div>
-			<Head>
-				<title>{title}</title>
-				<meta name='description' content={description} />
-				<meta name='keyword' content={keywords} />
-			</Head>
+		<Container maxW={{ xl: '1100px' }} centerContent>
 			<Header />
-
 			{router.pathname === '/' && <Showcase />}
-			<div className={styles.container}>{children}</div>
+			<Box as='main' my={22}>
+				{children}
+			</Box>
 			<Footer />
-		</div>
+		</Container>
 	);
 }
-
-Layout.defaultProps = {
-	title: 'Urbanbug | DJ Events | Find the hottest parties  ',
-	description: 'Find the latest DJ and other musical events',
-	keywords: 'music, dj, techno, trance, goth, edm, events',
-};
