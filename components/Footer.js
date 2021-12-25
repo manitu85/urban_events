@@ -1,16 +1,18 @@
-import Link from 'next/link';
-
-import styles from '@/styles/Footer.module.scss';
+import { Flex, Text } from '@chakra-ui/react';
 
 export default function Footer() {
 	return (
-		<footer className={styles.footer}>
-			<p>Copyright &copy; Urban Ants 2021</p>
-			<p>
-				<Link href='/about'>
-					<a>About the project</a>
-				</Link>
-			</p>
-		</footer>
+		<Flex as='footer' justify='center' w='full' textAlign='center' py={16}>
+			<Text
+				as='span'
+				bgGradient='linear(to-r, #495057, #D00000, #495057)'
+				bgClip='text'
+				fontSize={14}
+				fontWeight='bold'
+			>
+				{' '}
+				Copyright &copy; Urbanants {new Date().getFullYear()}{' '}
+			</Text>
+		</Flex>
 	);
 }
