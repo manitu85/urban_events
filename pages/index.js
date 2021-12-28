@@ -1,12 +1,11 @@
 import Link from 'next/link';
 
 import EventItem from '@/components/EventItem';
-import Layout from '@/components/Layout';
 import { getStrapiURL } from '@/config/index';
 
 export default function HomePage({ events }) {
 	return (
-		<Layout>
+		<>
 			<h1>Upcoming Events</h1>
 			{events.length === 0 && <h3>No events to show</h3>}
 			{events.map(evt => (
@@ -17,7 +16,7 @@ export default function HomePage({ events }) {
 					<a className='btn-secondary'>View All Events</a>
 				</Link>
 			)}
-		</Layout>
+		</>
 	);
 }
 

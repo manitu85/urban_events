@@ -1,7 +1,6 @@
+import { Input } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-
-import styles from '@/styles/Search.module.scss';
 
 export default function Search() {
 	const [term, setTerm] = useState('');
@@ -15,15 +14,15 @@ export default function Search() {
 	};
 
 	return (
-		<div className={styles.search}>
-			<form onSubmit={handleSubmit}>
-				<input
-					type='text'
-					value={term}
-					onChange={e => setTerm(e.target.value)}
-					placeholder='Search Events'
-				/>
-			</form>
-		</div>
+		<form onSubmit={handleSubmit}>
+			<Input
+				value={term}
+				onChange={e => setTerm(e.target.value)}
+				variant='flushed'
+				focusBorderColor='brand.600'
+				type='text'
+				placeholder='Search Events'
+			/>
+		</form>
 	);
 }

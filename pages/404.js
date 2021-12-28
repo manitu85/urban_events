@@ -1,12 +1,13 @@
 import Link from 'next/link';
+import { NextSeo } from 'next-seo';
 import { BsShieldExclamation } from 'react-icons/bs';
 
-import Layout from '@/components/Layout';
 import styles from '@/styles/404.module.scss';
 
 export default function NotFoundPage() {
 	return (
-		<Layout title='Not Found'>
+		<>
+			<NextSeo title='Not Found' />
 			<div className={styles.error}>
 				<div className={styles.wrapper}>
 					<p>
@@ -19,6 +20,6 @@ export default function NotFoundPage() {
 					<a>Go back Home</a>
 				</Link>
 			</div>
-		</Layout>
+		</>
 	);
 }

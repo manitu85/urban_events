@@ -20,7 +20,7 @@ export default function Logo(props) {
 					Urbanants{' '}
 				</LinkOverlay>
 			</NextLink>
-			<Image src='images/urbanants_logo.png' w='48px' h='48px' ml={2} />
+			<Image src='images/ant_logo.png' w='42px' h='42px' ml={2} />
 		</LinkBox>
 	);
 }

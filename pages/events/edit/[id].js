@@ -5,12 +5,12 @@ import moment from 'moment';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { NextSeo } from 'next-seo';
 import { useState } from 'react';
 import { FaImage } from 'react-icons/fa';
 import { toast, ToastContainer } from 'react-toastify';
 
 import ImageUpload from '@/components/ImageUpload';
-import Layout from '@/components/Layout';
 import Modal from '@/components/Modal';
 import { getStrapiURL } from '@/config/index';
 import { parseCookies } from '@/helpers/index';
@@ -83,7 +83,8 @@ export default function EditEventPage({ evt, token }) {
 	};
 
 	return (
-		<Layout title='Add New Event'>
+		<>
+			<NextSeo title='Add New Event' />
 			<Link href='/events'>Go Back</Link>
 			<h1>Edit Event</h1>
 			<ToastContainer />
@@ -191,7 +192,7 @@ export default function EditEventPage({ evt, token }) {
 					token={token}
 				/>
 			</Modal>
-		</Layout>
+		</>
 	);
 }
 

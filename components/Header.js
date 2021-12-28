@@ -1,66 +1,22 @@
-import Link from 'next/link';
-import { useContext } from 'react';
-import { FaSignInAlt, FaSignOutAlt } from 'react-icons/fa';
+import { Flex, HStack } from '@chakra-ui/react';
+import NextLink from 'next/link';
 
-import AuthContext from '@/context/AuthContext';
-import styles from '@/styles/Header.module.scss';
-
+import Logo from './Logo';
+import MenuBox from './Menu';
 import Search from './Search';
+import ThemeToggle from './ThemeToggle';
 
 export default function Header() {
-	const { user, logout } = useContext(AuthContext);
-
 	return (
-		<header className={styles.header}>
-			<div className={styles.logo}>
-				<Link href='/'>
-					<a>Urban Ants </a>
-				</Link>
-			</div>
-			<Search />
-			<nav>
-				<ul>
-					<li>
-						<Link href='/events'>
-							<a>Events</a>
-						</Link>
-					</li>
-					{user ? (
-						// If logged in
-						<>
-							<li>
-								<Link href='/events/add'>
-									<a>Add Event</a>
-								</Link>
-							</li>
-							<li>
-								<Link href='/account/dashboard'>
-									<a>Dashboard</a>
-								</Link>
-							</li>
-							<li>{user.email}</li>
-							<li>
-								<button
-									type='button'
-									onClick={() => logout()}
-									className='btn-secondary btn-icon'
-								>
-									<FaSignOutAlt /> Logout
-								</button>
-							</li>
-						</>
-					) : (
-						// If logged out
-						<li>
-							<Link href='/account/login'>
-								<a className='btn-secondary btn-icon'>
-									<FaSignInAlt /> Login
-								</a>
-							</Link>
-						</li>
-					)}
-				</ul>
-			</nav>
-		</header>
+		<Flex justify='space-between' align='center' w='100%' py={4}>
+			<HStack spacing='12px'>
+				<MenuBox />
+				<ThemeToggle />
+				<Search />
+			</HStack>
+			<Logo />
+		</Flex>
 	);
 }
+
+// PRE-PUSH hook

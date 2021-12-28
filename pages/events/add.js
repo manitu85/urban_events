@@ -3,10 +3,10 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { NextSeo } from 'next-seo';
 import { useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 
-import Layout from '@/components/Layout';
 import { getStrapiURL } from '@/config/index';
 import { parseCookies } from '@/helpers/index';
 import styles from '@/styles/Form.module.scss';
@@ -41,7 +41,6 @@ export default function AddEventPage({ token }) {
 		const res = await fetch(getStrapiURL(`/events`), {
 			method: 'POST',
 			headers: {
-				'Content-Type': 'application/json',
 				Authorization: `Bearer ${token}`,
 			},
 			body: JSON.stringify(values),
@@ -65,7 +64,8 @@ export default function AddEventPage({ token }) {
 	};
 
 	return (
-		<Layout title='Add New Event'>
+		<>
+			<NextSeo title='Add New Event' />
 			<Link href='/events'>Go Back</Link>
 			<h1>Add Event</h1>
 			<ToastContainer />
@@ -146,7 +146,7 @@ export default function AddEventPage({ token }) {
 
 				<input type='submit' value='Add Event' className='btn' />
 			</form>
-		</Layout>
+		</>
 	);
 }
 

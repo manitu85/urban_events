@@ -1,10 +1,10 @@
 import 'react-toastify/dist/ReactToastify.css';
 
 import { useRouter } from 'next/router';
+import { NextSeo } from 'next-seo';
 import { toast, ToastContainer } from 'react-toastify';
 
 import DashboardEvent from '@/components/DashboardEvent';
-import Layout from '@/components/Layout';
 import { getStrapiURL } from '@/config/index';
 import { parseCookies } from '@/helpers/index';
 import styles from '@/styles/Dashboard.module.scss';
@@ -32,7 +32,8 @@ export default function DashboardPage({ events, token }) {
 	};
 
 	return (
-		<Layout title='User Dashboard'>
+		<>
+			<NextSeo title='User Dashboard' />
 			<div className={styles.dash}>
 				<h1>Dashboard</h1>
 				<h3>My Events</h3>
@@ -41,7 +42,7 @@ export default function DashboardPage({ events, token }) {
 					<DashboardEvent key={evt.id} evt={evt} handleDelete={deleteEvent} />
 				))}
 			</div>
-		</Layout>
+		</>
 	);
 }
 

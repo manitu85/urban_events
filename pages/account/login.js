@@ -2,11 +2,11 @@
 import 'react-toastify/dist/ReactToastify.css';
 
 import Link from 'next/link';
+import { NextSeo } from 'next-seo';
 import { useContext, useEffect, useState } from 'react';
 import { FaUser } from 'react-icons/fa';
 import { toast, ToastContainer } from 'react-toastify';
 
-import Layout from '@/components/Layout';
 import AuthContext from '@/context/AuthContext';
 import styles from '@/styles/AuthForm.module.scss';
 
@@ -24,7 +24,8 @@ export default function LoginPage() {
 	useEffect(() => error && toast.error(error));
 
 	return (
-		<Layout>
+		<>
+			<NextSeo title='User Login' />
 			<div className={styles.auth}>
 				<h1>
 					<FaUser /> Log In
@@ -58,6 +59,6 @@ export default function LoginPage() {
 					<Link href='/account/register'>Register</Link>
 				</p>
 			</div>
-		</Layout>
+		</>
 	);
 }

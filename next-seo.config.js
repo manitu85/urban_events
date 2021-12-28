@@ -1,21 +1,22 @@
-const title = 'Urban Ants | DJ Events | Find the hottest parties';
+const BASE_URL = 'https://urbanants.vercel.app/';
+const title = 'Urban Ants | Find the hottest parties';
 const titleTemplate = 'Urban Ants | %s';
 const description = 'Find the latest DJ and other musical events';
 
 const SEO = {
 	titleTemplate,
 	description,
-	canonical: 'https://urbanants.vercel.app/',
+	canonical: `${BASE_URL}`,
 	openGraph: {
 		type: 'website',
 		locale: 'en_IE',
-		url: 'https://urbanants.vercel.app/',
+		url: `${BASE_URL}`,
 		title,
 		description,
 		site_name: 'Urban Ants',
 		images: [
 			{
-				// url: 'https://urbanants.vercel.app//og.png',
+				// url: `${BASE_URL}//og.png`,
 				alt: title,
 				width: 1280,
 				height: 720,

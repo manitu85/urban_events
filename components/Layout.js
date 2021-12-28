@@ -8,7 +8,7 @@ import Showcase from './Showcase';
 export default function Layout({ children }) {
 	const router = useRouter();
 	return (
-		<Container maxW={{ xl: '1100px' }} centerContent>
+		<Container maxW='container.xl' centerContent>
 			<Header />
 			{router.pathname === '/' && <Showcase />}
 			<Box as='main' my={22}>

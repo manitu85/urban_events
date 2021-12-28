@@ -2,16 +2,17 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { NextSeo } from 'next-seo';
 import { ToastContainer } from 'react-toastify';
 
 import EventMap from '@/components/EventMap';
-import Layout from '@/components/Layout';
 import { getStrapiURL } from '@/config/index';
 import styles from '@/styles/Event.module.scss';
 
 export default function EventPage({ evt }) {
 	return (
-		<Layout>
+		<>
+			<NextSeo title={evt.venue} description={evt.description} />
 			<div className={styles.event}>
 				<span>
 					{new Date(evt.date).toLocaleDateString('en-US')} at {evt.time}
@@ -41,7 +42,7 @@ export default function EventPage({ evt }) {
 					<a className={styles.back}>{'<'} Go Back</a>
 				</Link>
 			</div>
-		</Layout>
+		</>
 	);
 }
 
