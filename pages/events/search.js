@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
 import qs from 'qs';
@@ -12,7 +12,7 @@ export default function SearchPage({ events }) {
 	return (
 		<>
 			<NextSeo title='Search Results' />
-			<Link href='/events'>Go Back</Link>
+			<NextLink href='/events'>Go Back</NextLink>
 			<h1>Search Results for {router.query.term}</h1>
 			{events.length === 0 && <h3>No events to show</h3>}
 

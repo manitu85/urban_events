@@ -10,14 +10,14 @@ import customTheme from '@/styles/theme';
 
 import SEO from '../next-seo.config';
 
-const App = function ({ Component, pageProps }) {
+const App = function ({ Component, pageProps, router }) {
 	return (
 		<ChakraProvider theme={customTheme}>
 			<AuthProvider>
 				<PageLayout>
 					<DefaultSeo {...SEO} />
 					<GlobalStyle />
-					<Component {...pageProps} />;
+					<Component {...pageProps} key={router.pathname} />;
 				</PageLayout>
 			</AuthProvider>
 		</ChakraProvider>

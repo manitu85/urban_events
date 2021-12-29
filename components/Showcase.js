@@ -1,12 +1,21 @@
-import { Flex, Heading, Stack, Text } from '@chakra-ui/react';
-
-// import styles from '@/styles/Showcase.module.scss';
+import {
+	Flex,
+	Heading,
+	Stack,
+	Text,
+	useColorModeValue,
+} from '@chakra-ui/react';
 
 export default function Showcase() {
+	const headingColor = useColorModeValue(
+		'linear(to-r, #D00000, #F8F9FA, #D00000)',
+		'linear(to-r, #ff4d05, #FFEA00, #ff4d05)'
+	);
+
 	return (
 		<Stack direction='column' w='full'>
 			<Flex
-				h='400px'
+				h='350px'
 				w='100%'
 				direction='column'
 				align='center'
@@ -23,12 +32,12 @@ export default function Showcase() {
 					left: 0,
 					w: '100%',
 					h: '100%',
-					bg: 'hsla(0, 0%, 0%, 0.5)',
+					bg: 'hsla(0, 0%, 0%, 0.7)',
 				}}
 			>
 				<Heading
 					as='h1'
-					bgGradient='linear(to-r, #495057, #D00000, #495057)'
+					bgGradient={headingColor}
 					bgClip='text'
 					fontSize={[20, 28, 38]}
 					textTransform='uppercase'
@@ -40,7 +49,7 @@ export default function Showcase() {
 					Urbanants
 				</Heading>
 				<Text color='base.100' fontSize={18} fontWeight='bold' zIndex='20'>
-					Guide through the alternative culture and dj parties
+					Guide through the alternative cultures and dj parties
 				</Text>
 			</Flex>
 		</Stack>

@@ -15,7 +15,7 @@ const GlobalStyle = ({ children }) => {
 					}
 					#__next {
 						min-height: 100vh;
-						border-top: 5px solid #e2113e;
+						border-top: 5px solid #ff4d05;
 					}
 					body {
 						font-family: 'Open Sans';

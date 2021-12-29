@@ -1,7 +1,16 @@
-import { Image, LinkBox, LinkOverlay } from '@chakra-ui/react';
+import {
+	Image,
+	LinkBox,
+	LinkOverlay,
+	useColorModeValue,
+} from '@chakra-ui/react';
 import NextLink from 'next/link';
 
 export default function Logo(props) {
+	const headingColor = useColorModeValue(
+		'linear(to-r, base.400, brand.700, base.400)',
+		'linear(to-r, brand.500, brand.100, brand.500)'
+	);
 	return (
 		<LinkBox
 			display='flex'
@@ -12,9 +21,9 @@ export default function Logo(props) {
 		>
 			<NextLink href='/' passHref>
 				<LinkOverlay
-					bgGradient='linear(to-r, #495057, #D00000, #495057)'
+					bgGradient={headingColor}
 					bgClip='text'
-					fontSize={18}
+					fontSize={16}
 					fontWeight='extrabold'
 				>
 					Urbanants{' '}
