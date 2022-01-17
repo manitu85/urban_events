@@ -14,7 +14,7 @@ export default function Search() {
 	const router = useRouter();
 
 	const placeholderColor = useColorModeValue(
-		{ color: 'base.300' },
+		{ color: 'base.400' },
 		{ color: 'base.100' }
 	);
 

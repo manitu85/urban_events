@@ -11,6 +11,7 @@ export default function Logo(props) {
 		'linear(to-r, base.400, brand.700, base.400)',
 		'linear(to-r, brand.500, brand.100, brand.500)'
 	);
+
 	return (
 		<LinkBox
 			display='flex'

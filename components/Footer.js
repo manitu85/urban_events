@@ -2,13 +2,10 @@
 import { Box, Flex, Image, Text, useColorModeValue } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 
+import { routeToTop } from '@/helpers/index';
+
 export default function Footer() {
 	const router = useRouter();
-	// eslint-disable-next-line no-shadow
-	const routeToTop = (router, ...args) => {
-		if (typeof window !== 'undefined') window.scrollTo(0, 0);
-		return router.push.apply(router, args);
-	};
 
 	const color = useColorModeValue('base.300', 'brand.500');
 
