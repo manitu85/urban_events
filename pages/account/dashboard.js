@@ -2,7 +2,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 import DashboardEvent from '@/components/DashboardEvent';
 import { getStrapiURL } from '@/config/index';

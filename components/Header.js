@@ -1,5 +1,4 @@
 import { Flex, HStack } from '@chakra-ui/react';
-import NextLink from 'next/link';
 
 import Logo from './Logo';
 import MenuBox from './Menu';
