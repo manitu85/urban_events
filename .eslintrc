@@ -5,7 +5,7 @@
 		"es2021": true,
 		"node": true
 	},
-	"plugins": ["simple-import-sort"],
+	"plugins": ["simple-import-sort", "@next/eslint-plugin-next"],
 	"extends": [
 		"eslint:recommended",
 		"plugin:react/recommended",
@@ -13,7 +13,6 @@
 		"plugin:react-hooks/recommended",
 		"plugin:jsx-a11y/recommended",
 		"plugin:@next/next/recommended",
-		"next/core-web-vitals",
 		"plugin:prettier/recommended"
 	],
 	"parser": "@babel/eslint-parser",
