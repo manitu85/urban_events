@@ -6,8 +6,8 @@
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
-		"lint": "eslint \"{,!(.next)/**/}*.{js, jsx}\"",
-		"lint:fix": "yarn lint -- --fix",
+		"lint": "next lint",
+		"lint:fix": "yarn lint --fix",
 		"prettier": "prettier \"{,!(.next)/**/}*.{js, jsx}\" --check",
 		"format": "yarn prettier -- --write",
 		"prepare": "husky install",
@@ -28,7 +28,7 @@
 		]
 	},
 	"dependencies": {
-		"@chakra-ui/react": "^1.7.3",
+		"@chakra-ui/react": "^1.8.8",
 		"@emotion/react": "^11",
 		"@emotion/styled": "^11",
 		"cookie": "^0.4.1",
@@ -43,15 +43,18 @@
 		"react-icons": "^4.3.1",
 		"react-map-gl": "^6.1.18",
 		"react-map-gl-geocoder": "^2.1.7",
-		"react-toastify": "^8.1.0"
+		"react-toastify": "^8.1.0",
+		"sass": "^1.44.0"
 	},
 	"devDependencies": {
+		"@babel/core": "^7.19.3",
+		"@babel/eslint-parser": "^7.19.1",
+		"@babel/plugin-syntax-jsx": "^7.18.6",
 		"@commitlint/cli": "^15.0.0",
 		"@commitlint/config-conventional": "^15.0.0",
 		"@next/eslint-plugin-next": "^12.0.7",
-		"babel-eslint": "^10.1.0",
 		"eslint": "7.32.0",
-		"eslint-config-airbnb": "^19.0.2",
+		"eslint-config-next": "^12.3.1",
 		"eslint-config-prettier": "^8.3.0",
 		"eslint-plugin-import": "^2.25.3",
 		"eslint-plugin-jsx-a11y": "^6.5.1",
@@ -61,7 +64,6 @@
 		"eslint-plugin-simple-import-sort": "^7.0.0",
 		"husky": "^7.0.0",
 		"lint-staged": "^12.1.2",
-		"prettier": "^2.5.0",
-		"sass": "^1.44.0"
+		"prettier": "^2.5.0"
 	}
 }
