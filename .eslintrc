@@ -53,6 +53,16 @@
 				"aspects": ["invalidHref", "preferButton"]
 			}
 		],
+		"jsx-a11y/alt-text": [
+			1,
+			{
+				"elements": ["img", "object", "area", "input[type=\"image\"]"],
+				"img": ["Image"],
+				"object": ["Object"],
+				"area": ["Area"],
+				"input[type=\"image\"]": ["InputImage"]
+			}
+		],
 		"no-debugger": 0,
 		"no-console": 0,
 		"no-alert": 0,
