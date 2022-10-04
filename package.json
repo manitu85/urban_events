@@ -8,8 +8,8 @@
 		"start": "next start",
 		"lint": "next lint",
 		"lint:fix": "yarn lint --fix",
-		"prettier": "prettier \"{,!(.next)/**/}*.{js, jsx}\" --check",
-		"format": "yarn prettier -- --write",
+		"prettier": "prettier --check \"{,!(.next)/**/}*.{js, jsx}\" ",
+		"format": "prettier --write \"{,!(.next)/**/}*.{js, jsx}\" ",
 		"prepare": "husky install",
 		"pre-commit": "lint-staged --allow-empty",
 		"commit-msg": "yarn commitlint --edit $1"
