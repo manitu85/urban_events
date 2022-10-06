@@ -7,7 +7,7 @@ import ThemeToggle from './ThemeToggle';
 
 export default function Header() {
 	return (
-		<Flex justify='space-between' align='center' w='100%' py={4}>
+		<Flex justify='space-between' align='center' w='100%' py={3}>
 			<HStack spacing='12px'>
 				<MenuBox />
 				<ThemeToggle />
