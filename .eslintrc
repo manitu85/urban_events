@@ -112,5 +112,12 @@
 			}
 		]
 	},
-	"ignorePatterns": ["node_modules/*", ".next/*", "build/*", "!.prettierrc"]
+	"ignorePatterns": [
+		"node_modules/*",
+		".next/*",
+		"build/*",
+		"!.prettierrc",
+		".vercel",
+		"out"
+	]
 }
