@@ -17,7 +17,7 @@ module.exports = {
 	'**/*.{js,jsx,json,md,mdx}': [prettierCheck, buildFormatCommand],
 };
 
-// Bug: Next js recommended lint-staged with --file param on Windows WSL2: Ubuntu doesn't work, probably the path is wrong
+// Bug: Next js recommended lint-staged with --file param on Windows WSL2: Ubuntu doesn't work, probably the path is incorrect
 // module.exports = {
 // 	'**/*.js?(x)': filenames =>
 // 		`next lint --cache --fix --file ${filenames
