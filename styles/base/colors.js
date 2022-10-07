@@ -21,4 +21,5 @@ export const colors = {
 		800: '#9D0208',
 		900: '#370617ff',
 	},
+	// gradient: {}
 };

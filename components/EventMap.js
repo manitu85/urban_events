@@ -29,7 +29,7 @@ export default function EventMap({ evt }) {
 				latitude={viewport.latitude}
 				longitude={viewport.longitude}
 			>
-				<Image src='/images/pin.svg' width={30} height={30} />
+				<Image src='/images/pin.svg' alt='pin' width={30} height={30} />
 			</Marker>
 		</ReactMapGL>
 	);

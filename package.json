@@ -10,23 +10,9 @@
 		"lint:fix": "eslint --cache --cache-location .next/cache/eslint/ --fix",
 		"prettier": "prettier --check \"{,!(.next)/**/}*.{js,jsx}\" ",
 		"format": "prettier --write \"{,!(.next)/**/}*.{js,jsx}\" ",
-		"prepare": "husky install",
-		"pre-commit": "lint-staged --allow-empty",
-		"commit-msg": "yarn commitlint --edit $1"
+		"prepare": "husky install"
 	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "yarn pre-commit",
-			"commit-msg": "yarn commit-msg",
-			"post-merge": "yarn"
-		}
-	},
-	"lint-staged": {
-		"**/*.(jsx|js)": [
-			"yarn lint:fix",
-			"yarn format"
-		]
-	},
+	"eslint.packageManager": "yarn",
 	"dependencies": {
 		"@chakra-ui/react": "^1.8.8",
 		"@emotion/react": "^11",

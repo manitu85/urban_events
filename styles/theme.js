@@ -1,12 +1,24 @@
 import { extendTheme } from '@chakra-ui/react';
 
-import { colors, fonts } from './base';
+import { breakpoints, colors, fonts } from './base';
+import { Button, Card, Container, Heading } from './components';
 
 const config = {
 	initialColorMode: 'light',
-	useSystemColorMode: false,
+	useSystemColorMode: true,
 };
 
-const customTheme = extendTheme({ config, fonts, colors });
+const customTheme = extendTheme({
+	components: {
+		Card,
+		Container,
+		Heading,
+		Button,
+	},
+	fonts,
+	colors,
+	breakpoints,
+	config,
+});
 
 export default customTheme;
