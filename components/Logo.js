@@ -8,7 +8,7 @@ import NextLink from 'next/link';
 
 export default function Logo(props) {
 	const headingColor = useColorModeValue(
-		'linear(to-r, base.400, brand.700, base.400)',
+		'linear(to-r, base.400, brand.700, base.500)',
 		'linear(to-r, brand.500, brand.100, brand.500)'
 	);
 
@@ -30,7 +30,7 @@ export default function Logo(props) {
 					Urbanants{' '}
 				</LinkOverlay>
 			</NextLink>
-			<Image src='images/ant_logo.png' alt='logo' w='42px' h='42px' ml={2} />
+			<Image src='images/ant_logo.png' w='42px' h='42px' ml={2} />
 		</LinkBox>
 	);
 }
