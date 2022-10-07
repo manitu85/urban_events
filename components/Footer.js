@@ -38,6 +38,7 @@ export default function Footer() {
 				<Image
 					onClick={() => routeToTop(router, '/')}
 					src='images/ant_logo.png'
+					alt='logo'
 					cursor='pointer'
 					w={42}
 					h={42}
