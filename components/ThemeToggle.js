@@ -8,7 +8,7 @@ const ThemeToggle = () => {
 		<IconButton
 			onClick={toggleColorMode}
 			icon={colorMode === 'light' ? <RiMoonFill /> : <RiSunLine />}
-			aria-label='theme toggle'
+			aria-label='toggle theme'
 			variant='outline'
 			_hover={{ background: 'none' }}
 		/>
