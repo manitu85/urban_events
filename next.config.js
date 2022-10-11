@@ -1,7 +1,7 @@
 module.exports = {
 	reactStrictMode: true,
 	eslint: {
-		dirs: ['.'], //or ['pages', 'hooks', 'helpers']
+		dirs: ['.'],
 	},
 	images: {
 		domains: ['res.cloudinary.com'],
