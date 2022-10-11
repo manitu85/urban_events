@@ -10,11 +10,9 @@ const buildEslintCommand = filenames =>
 const buildFormatCommand = filenames =>
 	filenames.map(filename => `yarn format '${filename}'`);
 
-const prettierCheck = 'yarn prettier';
-
 module.exports = {
 	'**/*.{js,jsx}': buildEslintCommand,
-	'**/*.{js,jsx,json,md,mdx}': [prettierCheck, buildFormatCommand],
+	'**/*.{js,jsx,json,md,mdx}': [buildFormatCommand],
 };
 
 // Bug: Next js recommended lint-staged with --file param on Windows WSL2: Ubuntu doesn't work, probably the path is incorrect
