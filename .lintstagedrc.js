@@ -12,7 +12,7 @@ const buildFormatCommand = filenames =>
 
 module.exports = {
 	'**/*.{js,jsx}': buildEslintCommand,
-	'**/*.{js,jsx,json,md,mdx}': [buildFormatCommand],
+	'**/*.{js,jsx,json,md,mdx}': buildFormatCommand,
 };
 
 // Bug: Next js recommended lint-staged with --file param on Windows WSL2: Ubuntu doesn't work, probably the path is incorrect
