@@ -9,7 +9,7 @@
 		"lint": "next lint --dir .",
 		"lint:fix": "eslint --cache --cache-location .next/cache/eslint/ --fix",
 		"prettier": "prettier --check \"{,!(.next)/**/}*.{js,jsx}\" ",
-		"format": "yarn prettier --write \"{,!(.next)/**/}*.{js,jsx}\" ",
+		"format": "yarn prettier -- --write \"{,!(.next)/**/}*.{js,jsx}\" ",
 		"prepare": "husky install"
 	},
 	"eslint.packageManager": "yarn",
@@ -50,6 +50,7 @@
 		"eslint-plugin-simple-import-sort": "^7.0.0",
 		"husky": "^8.0.1",
 		"lint-staged": "^12.1.2",
-		"prettier": "^2.5.0"
+		"prettier": "^2.5.0",
+		"validate-branch-name": "^1.3.0"
 	}
 }
